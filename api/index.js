@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const rotas = require('./rotas/_rotas');
+const rotas = require('./rotas/_Rotas');
 
 const app = express();
 
