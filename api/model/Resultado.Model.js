@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const Resultado = new mongoose.Schema({
-    idTeste: { type: Number, required: true },
+    idTeste: { type: String, required: true },
     nomeTeste: { type: String, required: true },
     nomeUsuario: { type: String, required: true },
     perguntasTotais: { type: Number, required: true },

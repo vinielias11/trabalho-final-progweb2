@@ -1,0 +1,21 @@
+.background_cadastro_perguntas {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+#iconeVoltarTeste {
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+#botaoSalvarPergunta {
+    cursor: pointer;
+}
+
+#botaoSalvarPergunta i {
+    color: #fff;
+}

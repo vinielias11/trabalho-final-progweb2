@@ -1,0 +1,17 @@
+.navbar {
+  max-width: 100%;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+.navItem {
+  margin-right: 20px;
+  color: #333;
+  text-decoration: none;
+  font-size: larger;
+  font-weight: 400;
+}
+
+.navItem:hover {
+  color: #666;
+}
