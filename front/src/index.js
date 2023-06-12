@@ -6,6 +6,7 @@ import Root from './routes/Root';
 
 import { getResultados, Resultados } from './routes/Resultados';
 import { getTestes, Testes } from './routes/Testes';
+import Home from './routes/Home';
 
 const router = createBrowserRouter([{
   path: '/',
@@ -18,6 +19,9 @@ const router = createBrowserRouter([{
     path: 'testes',
     element: <Testes />,
     loader: getTestes
+  }, {
+    path: 'home',
+    element: <Home />
   }]
 }]);
 

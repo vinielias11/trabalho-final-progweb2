@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.json());
 app.use(rotas);
 
-mongoose.connect('mongodb://localhost:27017/trabalho-final-progweb2');
+mongoose.connect('mongodb://127.0.0.1:27017/trabalho-final-progweb2');
 
 const porta = 8080;
 

@@ -5,7 +5,7 @@ import CadastroTestes from "../components/cadastroTestes";
 
 export const Testes = () => {
     const testes = useLoaderData();
-    const navigate = useNavigate();
+    const navigate = useNavigate(); 
 
     const [cadastroAberto, setCadastroAberto] = useState(false);
     const [testeEditando, setTesteEditando] = useState({ _id: null, nome: '', materia: '', dificuldade: '', perguntas: [] });
