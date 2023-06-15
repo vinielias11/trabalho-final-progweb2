@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Root from './routes/Root';
+import Home from './routes/Home';
 
 import Resultados, { getResultados } from './routes/Resultados';
 import Testes, { getTestes } from './routes/Testes';
 import Login  from './routes/Login';
-
+import Realizar from './routes/Realizar';
 import { AuthProvider, RequireAuth } from './hooks/auth';
 
 const router = createBrowserRouter([{
@@ -28,6 +29,9 @@ const router = createBrowserRouter([{
 }, {
   path: '/login',
   element: <Login />
+}, {
+  path: 'testes/realizar/:id',
+  element: <Realizar />
 }]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

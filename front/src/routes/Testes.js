@@ -60,10 +60,14 @@ const Testes = () => {
         }
     };
 
+    const realizaTeste = (id) => {
+        navigate(`/testes/realizar/${id}`)
+    }
+
     return (
         <>
             <CadastroTestes isAberto={cadastroAberto} fechaCadastro={() => fechaCadastro()} testeEditando={testeEditando} />
-            <ListaTestes testes={testes} editarTeste={editarTeste} deletarTeste={deletarTeste} />
+            <ListaTestes testes={testes} editarTeste={editarTeste} deletarTeste={deletarTeste} realizaTeste={realizaTeste} />
             <button onClick={() => onClickNovoTeste()} className="btn btn_fixado_direita"><i className="fa fa-plus"></i></button>
         </>
     );

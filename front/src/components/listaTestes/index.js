@@ -1,6 +1,6 @@
 import './styles.css';
 
-const ListaTestes = ({ testes, editarTeste, deletarTeste }) => {
+const ListaTestes = ({ testes, editarTeste, deletarTeste, realizaTeste }) => {
     return (
         <div className="testes_container">
             <ul className="testes_responsive_table">
@@ -23,7 +23,7 @@ const ListaTestes = ({ testes, editarTeste, deletarTeste }) => {
                         <div className='col col-5'>{teste.perguntas.length}</div>
                         <div className='col col-icon'><i className='fa fa-edit' style={{ cursor: 'pointer' }} onClick={() => editarTeste(teste)}></i></div>
                         <div className='col col-icon'><i className='fa fa-trash' style={{ color: 'red', cursor: 'pointer' }} onClick={() => deletarTeste(teste._id)}></i></div>
-                        <div className='col col-icon'><i className='fa fa-play' style={{ color: 'green', cursor: 'pointer' }}></i></div>
+                        <div className='col col-icon'><i className='fa fa-play' style={{ color: 'green', cursor: 'pointer' }} onClick={() => realizaTeste(teste._id)}></i></div>
                     </li>
                 ))}
             </ul>
