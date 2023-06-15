@@ -21,6 +21,9 @@ const router = createBrowserRouter([{
     path: 'testes',
     element: <RequireAuth><Testes /></RequireAuth>,
     loader: getTestes
+  }, {
+    path: 'home',
+    element: <Home />
   }]
 }, {
   path: '/login',
