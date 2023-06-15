@@ -2,6 +2,8 @@
   max-width: 100%;
   background-color: #f2f2f2;
   padding: 20px;
+  display: flex;
+  align-items: center;
 }
 
 .navItem {
@@ -14,4 +16,8 @@
 
 .navItem:hover {
   color: #666;
+}
+
+.navbar .navItemDireita {
+  margin-left: auto;
 }

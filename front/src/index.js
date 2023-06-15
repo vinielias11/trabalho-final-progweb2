@@ -4,25 +4,33 @@ import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Root from './routes/Root';
 
-import { getResultados, Resultados } from './routes/Resultados';
-import { getTestes, Testes } from './routes/Testes';
+import Resultados, { getResultados } from './routes/Resultados';
+import Testes, { getTestes } from './routes/Testes';
+import Login  from './routes/Login';
+
+import { AuthProvider, RequireAuth } from './hooks/auth';
 
 const router = createBrowserRouter([{
   path: '/',
-  element: <Root />,
+  element:<RequireAuth><Root /></RequireAuth>,
   children: [{
     path: 'resultados',
-    element: <Resultados />,
+    element: <RequireAuth><Resultados /></RequireAuth>,
     loader: getResultados
   }, {
     path: 'testes',
-    element: <Testes />,
+    element: <RequireAuth><Testes /></RequireAuth>,
     loader: getTestes
   }]
+}, {
+  path: '/login',
+  element: <Login />
 }]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );

@@ -1,7 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import ListaResultados from "../components/listaResultados";
 
-export const Resultados = () => {
+const Resultados = () => {
     const resultados = useLoaderData();
 
     return (
@@ -15,3 +15,5 @@ export const getResultados = async () => {
 
     return data.resultados;
 };
+
+export default Resultados;

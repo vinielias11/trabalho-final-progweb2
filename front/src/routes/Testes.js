@@ -2,10 +2,12 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 import ListaTestes from "../components/listaTestes";
 import { useState } from "react";
 import CadastroTestes from "../components/cadastroTestes";
+import AuthConsumer from "../hooks/auth";
 
-export const Testes = () => {
+const Testes = () => {
     const testes = useLoaderData();
     const navigate = useNavigate();
+    const [autenticado] = AuthConsumer();
 
     const [cadastroAberto, setCadastroAberto] = useState(false);
     const [testeEditando, setTesteEditando] = useState({ _id: null, nome: '', materia: '', dificuldade: '', perguntas: [] });
@@ -18,18 +20,33 @@ export const Testes = () => {
     }
 
     const onClickNovoTeste = () => {
+        if (!autenticado.admin) {
+            alert('Você não tem autorização para criar um novo teste!')
+            return;
+        }
+
         setTesteEditando({ _id: null, nome: '', materia: '', dificuldade: '', perguntas: [] });
         setCadastroAberto(true);
         document.body.style.overflow = 'hidden';
     };
 
     const editarTeste = (teste) => {
+        if (!autenticado.admin) {
+            alert('Você não tem autorização para editar um teste!')
+            return;
+        }
+
         setTesteEditando(teste);
         setCadastroAberto(true);
         document.body.style.overflow = 'hidden';
     };
 
     const deletarTeste = async (idTeste) => {
+        if (!autenticado.admin) {
+            alert('Você não tem autorização para deletar um teste!')
+            return;
+        }
+
         const resp = await fetch(`/teste/Deletar/${idTeste}`, {
             method: 'DELETE'
         });
@@ -58,3 +75,5 @@ export const getTestes = async () => {
 
     return data.testes;
 };
+
+export default Testes;
