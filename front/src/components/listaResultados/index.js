@@ -17,7 +17,7 @@ const ListaResultados = ({ resultados }) => {
                         <div className='col col-2'>{resultado.nomeUsuario}</div>
                         <div className='col col-3'>{resultado.nomeTeste}</div>
                         <div className='col col-4'>{`${resultado.respostasCorretas} / ${resultado.perguntasTotais}`}</div>
-                        <div className='col col-5'>{resultado.porcentagemAcertos}</div>
+                        <div className='col col-5'>{resultado.porcentagemAcertos}%</div>
                     </li>
                 ))}
             </ul>

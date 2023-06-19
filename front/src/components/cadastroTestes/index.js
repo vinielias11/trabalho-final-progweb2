@@ -58,7 +58,7 @@ const CadastroTestes = ({ isAberto, fechaCadastro, testeEditando }) => {
         }
 
         fechaCadastro();
-        navigate(0);
+        navigate("/menu/testes");
     };
 
     const criarTeste = async () => {
