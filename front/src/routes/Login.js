@@ -52,7 +52,7 @@ const Login = () => {
         }
         
         autenticar({ tipo: 'login', nome: objResponse.nome, admin: objResponse.admin });
-        navigate('/menu', { replace: true });
+        navigate('/menu/testes', { replace: true });
     };
 
     return (

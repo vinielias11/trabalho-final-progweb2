@@ -207,7 +207,6 @@ input:checked+label:after {
     cursor: pointer;
     font-family: "Roboto";
     border-radius: 8px;
-    display: none;
 }
 
 .realiza_btn i {
