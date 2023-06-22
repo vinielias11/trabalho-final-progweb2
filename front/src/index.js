@@ -13,7 +13,16 @@ import { AuthProvider, RequireAuth } from './hooks/auth';
 
 const router = createBrowserRouter([{
   path: '/',
-  element:<RequireAuth><Root /></RequireAuth>,
+  element:<Home />,
+}, {
+  path: '/login',
+  element: <Login />
+}, {
+  path: 'testes/realizar/:id',
+  element: <RequireAuth><Realizar /></RequireAuth>
+}, {
+  path: 'menu',
+  element: <RequireAuth><Root /></RequireAuth>,
   children: [{
     path: 'resultados',
     element: <RequireAuth><Resultados /></RequireAuth>,
@@ -22,16 +31,7 @@ const router = createBrowserRouter([{
     path: 'testes',
     element: <RequireAuth><Testes /></RequireAuth>,
     loader: getTestes
-  }, {
-    path: 'home',
-    element: <Home />
-  }]
-}, {
-  path: '/login',
-  element: <Login />
-}, {
-  path: 'testes/realizar/:id',
-  element: <Realizar />
+  },]
 }]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
