@@ -4,7 +4,8 @@ import AuthConsumer from '../../hooks/auth';
 
 const RealizaTestes = ({realizaTeste}) => {   
     const [indicePerguntaAtual, setIndice] = useState(0);
-    const [exibirBotaoFinalizar, setBotaoFinalizar] = useState(false);
+    const [isUltimaPergunta, setUltimaPergunta] = useState(false);
+    const [isPrimeiraPergunta, setPrimeiraPergunta] = useState(false);
     const [perguntaAtual, setPergunta] = useState(realizaTeste.perguntas[indicePerguntaAtual]);
     const [altMarcada, setAltMarcada] = useState('')
     const [isFinalizado, setFinalizado] = useState(false)
@@ -16,10 +17,18 @@ const RealizaTestes = ({realizaTeste}) => {
         setAltMarcada("");
         setPergunta(realizaTeste.perguntas[indicePerguntaAtual]);
 
-        if (indicePerguntaAtual + 1 === realizaTeste.perguntas.length && !isFinalizado) {
-            setBotaoFinalizar(true);
+        if (indicePerguntaAtual + 1 === realizaTeste.perguntas.length) {
+            setUltimaPergunta(true);
           } else {
-            setBotaoFinalizar(false);
+            setUltimaPergunta(false);
+          }
+
+console.log(indicePerguntaAtual)
+
+          if (indicePerguntaAtual === 0) {
+            setPrimeiraPergunta(true);
+          } else {
+            setPrimeiraPergunta(false);
           }
 
       }, [realizaTeste.perguntas, indicePerguntaAtual, isFinalizado]);
@@ -51,7 +60,7 @@ const RealizaTestes = ({realizaTeste}) => {
     const onClickFinalizarTeste = () => {
         criarResultado();
         setFinalizado(true);
-        setBotaoFinalizar(false);
+        setUltimaPergunta(false);
         alert("Teste finalizado e resultados computados!")
     }
 
@@ -147,7 +156,9 @@ const RealizaTestes = ({realizaTeste}) => {
             </div>
             <div className="realiza_wrapperPergunta">
                 <div className="realiza_botoesPerguntasVoltar">
-                    <i id="botaoVoltarPergunta" className="fa-solid fa-chevron-left fa-3x" onClick={() => onclickVoltar()}></i>
+                {!isPrimeiraPergunta &&(
+                    <i id="realiza_botaoVoltarPergunta" className="fa-solid fa-chevron-left fa-3x" onClick={() => onclickVoltar()}></i>
+                )} 
                 </div>
                 <div className="realiza_container" id="containerFormTeste">
                     <form id="formTestes">
@@ -176,12 +187,14 @@ const RealizaTestes = ({realizaTeste}) => {
                     </form>
                 </div>
                 <div className="realiza_botoesPerguntasAvancar">
+                {!isUltimaPergunta && (
                     <i id="realiza_botaoAvancarPergunta" className="fa-solid fa-chevron-right fa-3x" onClick={() => onclickAvancar()}></i>
+                )}
                 </div>
             </div>
             <div className="realiza_wrapperRodape">
                 <h4 id="numeroPerguntas">Pergunta {indicePerguntaAtual + 1} / {realizaTeste.perguntas.length}</h4>
-                {exibirBotaoFinalizar && (
+                {isUltimaPergunta && !isFinalizado && (
                     <button id="btnFinalizar" className="realiza_btn" onClick={() => onClickFinalizarTeste()}><i className="fa fa-check"></i>Finalizar</button>
                 )}
                 {isFinalizado && (

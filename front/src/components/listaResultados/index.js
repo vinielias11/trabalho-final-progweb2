@@ -1,6 +1,6 @@
 import './styles.css';
 
-const ListaResultados = ({ resultados }) => {
+const ListaResultados = ({ resultados, deletarResultado }) => {
     return (
         <div className="resultados_container">
             <ul className="resultados_responsive_table">
@@ -18,6 +18,7 @@ const ListaResultados = ({ resultados }) => {
                         <div className='col col-3'>{resultado.nomeTeste}</div>
                         <div className='col col-4'>{`${resultado.respostasCorretas} / ${resultado.perguntasTotais}`}</div>
                         <div className='col col-5'>{resultado.porcentagemAcertos}%</div>
+                        <div className='col col-icon'><i className='fa fa-trash' style={{ color: 'red', cursor: 'pointer' }} onClick={() => deletarResultado(resultado._id)}></i></div>
                     </li>
                 ))}
             </ul>

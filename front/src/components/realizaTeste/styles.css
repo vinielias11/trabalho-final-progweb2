@@ -216,3 +216,19 @@ input:checked+label:after {
 .realiza_porcentagemAcertos {
     display: none;
 }
+
+#realiza_botaoAvancarPergunta{
+    cursor: pointer;
+}
+
+#realiza_botaoAvancarPergunta:hover{
+    opacity: 0.6;
+} 
+
+#realiza_botaoVoltarPergunta{
+    cursor: pointer;
+} 
+
+#realiza_botaoVoltarPergunta:hover{
+    opacity: 0.6;
+} 

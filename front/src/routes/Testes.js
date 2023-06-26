@@ -56,7 +56,7 @@ const Testes = () => {
         if (objResponse.status !== "OK") {
             alert(objResponse.erro);
         } else {
-            navigate(0);
+            navigate('/menu/testes');
         }
     };
 
