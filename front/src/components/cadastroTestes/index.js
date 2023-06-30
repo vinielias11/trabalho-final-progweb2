@@ -93,42 +93,42 @@ const CadastroTestes = ({ isAberto, fechaCadastro, testeEditando }) => {
         return (
             <>
                 <div className='background_cadastro_testes'>
-                    <div className="cadastro_testes_container">
+                    <div className='cadastro_testes_container'>
                         <form>
-                            <div className="row" style={{ flexDirection: 'row-reverse' }}>
-                                <div className="input-icon"><i className="fa fa-x" style={{ marginTop: '20px', cursor: 'pointer' }} onClick={fechaCadastro}></i></div>
+                            <div className='row' style={{ flexDirection: 'row-reverse' }}>
+                                <div className='input-icon'><i className='fa fa-x' style={{ marginTop: '20px', cursor: 'pointer' }} onClick={fechaCadastro}></i></div>
                             </div>
-                            <div className="row">
+                            <div className='row'>
                                 <h4>Teste</h4>
-                                <div className="input-group input-group-icon">
-                                    <input type="text" placeholder="Nome" value={nome} onChange={(e) => setNome(e.target.value)} />
-                                    <div className="input-icon">
-                                        <i className="fa fa-pen"></i>
+                                <div className='input-group input-group-icon'>
+                                    <input type='text' placeholder='Nome' value={nome} onChange={(e) => setNome(e.target.value)} />
+                                    <div className='input-icon'>
+                                        <i className='fa fa-pen'></i>
                                     </div>
                                 </div>
-                                <div className="input-group input-group-icon">
-                                    <input type="text" placeholder="Matéria/Assunto" value={materia} onChange={(e) => setMateria(e.target.value)} />
-                                    <div className="input-icon">
-                                        <i className="fa fa-graduation-cap"></i>
+                                <div className='input-group input-group-icon'>
+                                    <input type='text' placeholder='Matéria/Assunto' value={materia} onChange={(e) => setMateria(e.target.value)} />
+                                    <div className='input-icon'>
+                                        <i className='fa fa-graduation-cap'></i>
                                     </div>
                                 </div>
                             </div>
-                            <div className="row">
+                            <div className='row'>
                                 <div>
                                     <h4>Dificuldade</h4>
-                                    <div className="input-group">
-                                        <input id="dificuldade-facil" type="radio" name="dificuldade" value="Fácil" checked={testeEditando.dificuldade || dificuldade === "Fácil"} onChange={(e) => setDificuldade(e.target.value)} /><label htmlFor="dificuldade-facil">Fácil</label>
-                                        <input id="dificuldade-media" type="radio" name="dificuldade" value="Média" checked={testeEditando.dificuldade || dificuldade === "Média"} onChange={(e) => setDificuldade(e.target.value)} /><label htmlFor="dificuldade-media">Média</label>
-                                        <input id="dificuldade-dificil" type="radio" name="dificuldade" value="Difícil" checked={testeEditando.dificuldade || dificuldade === "Difícil"} onChange={(e) => setDificuldade(e.target.value)} /><label htmlFor="dificuldade-dificil">Difícil</label>
-                                        <input id="dificuldade-expert" type="radio" name="dificuldade" value="Expert" checked={testeEditando.dificuldade || dificuldade === "Expert"} onChange={(e) => setDificuldade(e.target.value)} /><label htmlFor="dificuldade-expert">Expert</label>
+                                    <div className='input-group'>
+                                        <input id='dificuldade-facil' type='radio' name='dificuldade' value='Fácil' checked={dificuldade === 'Fácil'} onChange={(e) => setDificuldade(e.target.value)} /><label htmlFor='dificuldade-facil'>Fácil</label>
+                                        <input id='dificuldade-media' type='radio' name='dificuldade' value='Média' checked={dificuldade === 'Média'} onChange={(e) => setDificuldade(e.target.value)} /><label htmlFor='dificuldade-media'>Média</label>
+                                        <input id='dificuldade-dificil' type='radio' name='dificuldade' value='Difícil' checked={dificuldade === 'Difícil'} onChange={(e) => setDificuldade(e.target.value)} /><label htmlFor='dificuldade-dificil'>Difícil</label>
+                                        <input id='dificuldade-expert' type='radio' name='dificuldade' value='Expert' checked={dificuldade === 'Expert'} onChange={(e) => setDificuldade(e.target.value)} /><label htmlFor='dificuldade-expert'>Expert</label>
                                     </div>
                                 </div>
                             </div>
-                            <div className="row">
+                            <div className='row'>
                                 <h4>Perguntas</h4>
                             </div>
                             {perguntas.map(pergunta => (
-                                <div className="row" style={{ flexDirection: 'row' }} key={pergunta.id}>
+                                <div className='row' style={{ flexDirection: 'row' }}>
                                     <div className='col-89-porcento' onClick={() => onClickEditarPergunta(pergunta)}>
                                         <div className='input-group input-group-icon'>
                                             <input placeholder={pergunta.titulo} style={{ cursor: 'pointer' }} disabled={true}></input>
@@ -142,19 +142,19 @@ const CadastroTestes = ({ isAberto, fechaCadastro, testeEditando }) => {
                                     </div>
                                 </div>
                             ))}
-                            <div className="row">
-                                <div className="input-group input-group-icon" onClick={() => setCadastrandoPergunta(true)}>
-                                    <input type="text" placeholder="Adicionar pergunta" disabled={true} id="inputAdicionarPergunta" />
-                                    <div className="input-icon">
-                                        <i className="fa fa-plus"></i>
+                            <div className='row'>
+                                <div className='input-group input-group-icon' onClick={() => setCadastrandoPergunta(true)}>
+                                    <input type='text' placeholder='Adicionar pergunta' disabled={true} id='inputAdicionarPergunta' />
+                                    <div className='input-icon'>
+                                        <i className='fa fa-plus'></i>
                                     </div>
                                 </div>
                             </div>
                         </form>
-                        <div className="row">
-                            <div className="input-group">
-                                <input type="radio" disabled={true} /><label id="botaoEsconder"><span><i className=""></i></span></label>
-                                <input type="radio" checked={true} readOnly={true} /><label id="botaoSalvarPergunta" onClick={() => { onClickSalvarTeste() }}><span><i className="fa fa-save"></i>Salvar</span></label>
+                        <div className='row'>
+                            <div className='input-group'>
+                                <input type='radio' disabled={true} /><label id='botaoEsconder'><span><i className=''></i></span></label>
+                                <input type='radio' checked={true} readOnly={true} /><label id='botaoSalvarPergunta' onClick={() => { onClickSalvarTeste() }}><span><i className='fa fa-save'></i>Salvar</span></label>
                             </div>
                         </div>
                     </div>

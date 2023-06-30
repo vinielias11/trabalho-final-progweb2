@@ -4,11 +4,15 @@ import { useEffect, useState } from "react";
 
 export const Realizar = () => {
     const params = useParams();
-    const [realizaTeste, setRealizaTeste] = useState({nome: '', materia: '', dificuldade: '', perguntas: [{titulo: '', alternativaA: '', alternativaB: '', alternativaC: '', alternativaD: '', alternativaE: '', alternativaCorreta: ''}]});
+    const [teste, setTeste] = useState({ nome: '', materia: '', dificuldade: '', perguntas: [{ titulo: '', alternativaA: '', alternativaB: '', alternativaC: '', alternativaD: '', alternativaE: '', alternativaCorreta: ''} ]});
 
-    useEffect(() =>{
-        async function fetchData(){
-            const resp = await fetch(`/teste/RecuperarPorId/${params.id}`, {headers: {"Content-Type": "application/json"},})
+    useEffect(() => {
+        async function fetchData() {
+            const resp = await fetch(`/teste/RecuperarPorId/${params.id}`, {
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
 
             const objResponse = await resp.json();
 
@@ -17,19 +21,14 @@ export const Realizar = () => {
                 return;
             }
 
-            setRealizaTeste(objResponse.teste);
-
+            setTeste(objResponse.teste);
         }
         
         fetchData();
-        
-
-    }, [])
-
-
+    }, [params.id]);
     
     return (
-        <RealizaTeste realizaTeste={realizaTeste} />
+        <RealizaTeste teste={teste} />
     );
 };
 

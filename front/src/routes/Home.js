@@ -6,7 +6,6 @@ const Home = () => {
     const navigate = useNavigate();
 
     const navegaLogin = () => {
-        console.log("navegando");
         navigate('/login');
     }
     

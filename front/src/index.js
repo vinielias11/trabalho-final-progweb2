@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Root from './routes/Root';
+import Menu from './routes/Menu';
 import Home from './routes/Home';
 
 import Resultados, { getResultados } from './routes/Resultados';
@@ -22,7 +22,7 @@ const router = createBrowserRouter([{
   element: <RequireAuth><Realizar /></RequireAuth>
 }, {
   path: 'menu',
-  element: <RequireAuth><Root /></RequireAuth>,
+  element: <RequireAuth><Menu /></RequireAuth>,
   children: [{
     path: 'resultados',
     element: <RequireAuth><Resultados /></RequireAuth>,

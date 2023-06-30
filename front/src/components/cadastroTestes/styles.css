@@ -160,6 +160,11 @@ h4 {
     right: 0;
     background-color: rgb(0,0,0, 0.7);
     z-index: 1000;
+    overflow: auto;
+}
+
+.background_cadastro_testes::-webkit-scrollbar {
+    display: none;
 }
 
 .cadastro_testes_container {
@@ -169,7 +174,7 @@ h4 {
     background-color: #fff;
     border-radius: 4.2px;
     box-shadow: 0px 3px 10px -2px rgba(0, 0, 0, 0.2);
-    margin-top: 2%;
+    margin-top: 1%;
     font-size: 15px;
     color: #b9b9b9;
 }
